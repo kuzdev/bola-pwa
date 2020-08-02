@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Liga Champions</title>
+  <meta name="description" content="My first PWA"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6a1b9a"/>
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/images/icon-512x512.png">
+</head>
+<body>
+  <!-- Navigasi -->
+  <nav class="purple darken-3" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo" id="logo-container">Champions</a>
+      <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+      
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul class="sidenav" id="nav-mobile"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+  <div class="container" id="body-content"></div>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/nav.js"></script>
+  <script type="text/javascript" src="/js/api.js"></script>
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/idb.js"></script>
+  <script type="text/javascript" src="/js/database.js"></script>
+  <script type="text/javascript" src="/js/notif.js"></script>
+  
+<script>
+  // REGISTER SERVICE WORKER
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then(function() {
+          console.log("Pendaftaran ServiceWorker berhasil");
+          regNotif();
+        })
+        .catch(function() {
+          console.log("Pendaftaran ServiceWorker gagal");
+        });
+    });
+  } else {
+    console.log("ServiceWorker belum didukung browser ini.");
+  }
+</script>
+</body>
+</html>
